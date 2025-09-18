@@ -1,4 +1,6 @@
-﻿namespace MauiAppQuiz
+﻿using MauiAppQuiz.Paginas;
+
+namespace MauiAppQuiz
 {
     public partial class MainPage : ContentPage
     {
@@ -9,11 +11,22 @@
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            SecureStorage.Default.RemoveAll();
+        }
+
         private async void BTNiniciar_Clicked(object sender, EventArgs e)
         {
             try 
             {
-                
+                string pergunta = await DisplayPromptAsync("Pergunta", "Qual é seu nome?", "Ok", "Cancelar");
+
+                await SecureStorage.Default.SetAsync("nome", pergunta);
+
+                await Navigation.PushAsync(new Questao1());
             }
             catch (Exception ex) 
             {

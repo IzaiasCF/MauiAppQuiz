@@ -2,10 +2,10 @@ namespace MauiAppQuiz.Paginas;
 
 public partial class Questao1 : ContentPage
 {
-	public Questao1()
-	{
-		InitializeComponent();
-	}
+    public Questao1()
+    {
+        InitializeComponent();
+    }
 
     protected async override void OnAppearing()
     {

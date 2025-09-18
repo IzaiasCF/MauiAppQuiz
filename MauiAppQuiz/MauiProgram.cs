@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
 
 namespace MauiAppQuiz
 {
@@ -7,7 +8,7 @@ namespace MauiAppQuiz
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            builder
+            MauiAppBuilder mauiAppBuilder = builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
